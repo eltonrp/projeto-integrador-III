@@ -1,2 +1,5 @@
 # Ignora todas as pastas node_modules do projeto
 **/node_modules
+
+# Ignora o arquivo executável webdriver do Selenium
+/testes-selenium/chromedriver.exe
