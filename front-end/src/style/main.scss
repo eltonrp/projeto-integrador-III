@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;700;900&display=swap');
+
+:root {
+
+    --theme-c-color: #{$theme-c-color};
+    --theme-r-color: #{$theme-r-color};
+    --theme-u-color: #{$theme-u-color};
+    --theme-d-color: #{$theme-d-color};
+
+    --theme-color: #{$theme-color};
+    --background-color: #{$background-color};
+
+    --font-color: #{$font-color};
+    --primary-color: #{$primary-color};
+    --secondary-color: #{$secondary-color};
+    --success-color: #{$success-color};
+    --danger-color: #{$danger-color};
+    --warning-color: #{$warning-color};
+    --info-color: #{$info-color};
+    --light-color: #{$light-color};
+    --dark-color: #{$dark-color};
+
+    --area-color: #{$area-color};
+    --highlight-color: #{$highlight-color};
+    --default-border-color: #{$default-border-color};
+
+}
+
+*, *::after, *::before { box-sizing: border-box }
+
+html {
+
+    background-color: var(--background-color);
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+body {
+
+    color: var(--font-color);
+    fill: var(--font-color);
+    font-size: 1rem;
+
+}
+
+a {
+
+    color: var(--theme-color);
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline }
+
+}
+
+button {
+    
+    background-color: transparent;
+    border: 0 none;
+    color: var(--font-color);
+    cursor: pointer;
+    padding: 0;
+
+}
+
+strong { font-weight: 700 }
+
+a,
+a:hover,
+button,
+button:hover,
+input,
+input:focus { transition: all .1s linear }
