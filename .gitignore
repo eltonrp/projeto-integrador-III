@@ -2,4 +2,7 @@
 **/node_modules
 
 # Ignora o arquivo executável webdriver do Selenium
-/testes-selenium/chromedriver.exe
+chromedriver.exe
+
+# Ignora arquivos de log
+log*.txt
