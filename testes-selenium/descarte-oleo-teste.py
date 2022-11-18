@@ -80,7 +80,7 @@ Quantidade final de elementos = {nova_qde_elementos}\n'
     return cabecalho + 'Elemento nao cadastrado\nResultado = Nao passou no teste\n\n'
   return cabecalho + 'Elemento cadastrado\nResultado = Passou no teste\n\n'
 
-# Função que tenta cadastrar com um campo obrigatório aleatoriamente
+# Função que tenta cadastrar com um campo obrigatório vazio aleatoriamente
 def cadastra_um_vazio():
   try:
     qde_elementos = len(driver.find_elements(By.CLASS_NAME, 'item'))
