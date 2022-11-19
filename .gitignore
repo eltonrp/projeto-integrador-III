@@ -6,3 +6,4 @@ chromedriver.exe
 
 # Ignora arquivos de log
 log*.txt
+testes-selenium/backup

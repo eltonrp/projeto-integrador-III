@@ -2,7 +2,8 @@ from time import sleep, strftime
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
-from random import sample, randint
+from random import sample, randint, randrange
+from selenium.webdriver.common.keys import Keys
 
 # Instancia driver e cria variáveis
 def inicio():
@@ -16,7 +17,7 @@ def inicio():
   # Campos para cadastrar
   global nome, cep, endereco, telefone
   nome = sample(['Coleta do Sul', 'Gordura Doce', 'Cheiro do Ralo', 'Óleo Puro'], 1)
-  cep = randint(10000000, 13999999)
+  cep = str('130') + str(randrange(10, 90, 10)) + '0' + str(randrange(10, 90, 10))
   endereco = sample(['Rua Azul, 222', 'Rua X, 56', 'Rua Branca, 78', 'Rua das Pomba, 900'], 1)
   telefone = randint(11999999999, 19999999999)
 
@@ -52,7 +53,8 @@ def cadastra_vazio():
   passou = qde_elementos == nova_qde_elementos
   cabecalho = f'# Teste Cadastrar Vazio\n\
 Quantidade de elementos iniciais = {qde_elementos}\n\
-Quantidade final de elementos = {nova_qde_elementos}\n' 
+Quantidade final de elementos = {nova_qde_elementos}\n\
+Esperado = Nao cadastrar\n' 
   if passou:
     return cabecalho + 'Elemento nao cadastrado\nResultado = Passou no teste\n\n'
   return cabecalho + 'Elemento cadastrado\nResultado = Nao passou no teste\n\n'
@@ -67,7 +69,9 @@ def cadastra_todos():
       qde_elementos = len(driver.find_elements(By.CLASS_NAME, 'item'))
   input_name.send_keys(nome)
   input_cep.send_keys(cep)
-  input_endereco.send_keys(endereco)
+  input_cep.send_keys(Keys.TAB)
+  sleep(2)
+  # input_endereco.send_keys(endereco)
   input_telefone.send_keys(telefone)
   botao_cadastrar.click()
   sleep(3)
@@ -75,7 +79,8 @@ def cadastra_todos():
   passou = qde_elementos != nova_qde_elementos
   cabecalho = f'# Teste Cadastrar Todos\n\
 Quantidade de elementos iniciais = {qde_elementos}\n\
-Quantidade final de elementos = {nova_qde_elementos}\n' 
+Quantidade final de elementos = {nova_qde_elementos}\n\
+Esperado = Cadastrar\n' 
   if not passou:
     return cabecalho + 'Elemento nao cadastrado\nResultado = Nao passou no teste\n\n'
   return cabecalho + 'Elemento cadastrado\nResultado = Passou no teste\n\n'
@@ -90,20 +95,28 @@ def cadastra_um_vazio():
       qde_elementos = len(driver.find_elements(By.CLASS_NAME, 'item'))
   lista_itens_obrigatorios = [input_name, input_cep, input_endereco]
   lista_sorteada = sample(lista_itens_obrigatorios, 2)
-  for itens in lista_sorteada:
-    if itens == input_name:
-      itens = input_name.send_keys(nome)
-    if itens == input_cep:
-      itens = input_cep.send_keys(cep)
-    if itens == input_endereco:
-      itens = input_endereco.send_keys(endereco)
+  if input_cep in lista_sorteada:
+    input_cep.send_keys(cep)
+    input_cep.send_keys(Keys.TAB)
+    sleep(2)
+  else:
+    for itens in lista_sorteada:
+      if itens == input_name:
+        itens = input_name.send_keys(nome)
+      # if itens == input_cep:
+      #   itens = input_cep.send_keys(cep)
+      #   input_cep.send_keys(Keys.TAB)
+      #   sleep(2)
+      if itens == input_endereco:
+        itens = input_endereco.send_keys(endereco)
   botao_cadastrar.click()
   sleep(3)
   nova_qde_elementos = len(driver.find_elements(By.CLASS_NAME, 'item'))
   passou = qde_elementos == nova_qde_elementos
   cabecalho = f'# Teste Cadastrar um Obrigatorio Vazio\n\
 Quantidade de elementos iniciais = {qde_elementos}\n\
-Quantidade final de elementos = {nova_qde_elementos}\n' 
+Quantidade final de elementos = {nova_qde_elementos}\n\
+Esperado = Nao cadastrar\n' 
   if passou:
     return cabecalho + 'Elemento nao cadastrado\nResultado = Passou no teste\n\n'
   return cabecalho + 'Elemento cadastrado\nResultado = Nao passou no teste\n\n'
@@ -118,7 +131,9 @@ def cadastra_numericos():
       qde_elementos = len(driver.find_elements(By.CLASS_NAME, 'item'))
   input_name.send_keys(nome)
   input_cep.send_keys('Teste')
-  input_endereco.send_keys(endereco)
+  input_cep.send_keys(Keys.TAB)
+  sleep(2)
+  # input_endereco.send_keys(endereco)
   input_telefone.send_keys('Outro teste')
   botao_cadastrar.click()
   sleep(3)
@@ -126,7 +141,8 @@ def cadastra_numericos():
   passou = qde_elementos == nova_qde_elementos
   cabecalho = f'# Teste Cadastrar Numericos\n\
 Quantidade de elementos iniciais = {qde_elementos}\n\
-Quantidade final de elementos = {nova_qde_elementos}\n' 
+Quantidade final de elementos = {nova_qde_elementos}\n\
+Esperado = Nao cadastrar\n' 
   if passou:
     return cabecalho + 'Elemento nao cadastrado\nResultado = Passou no teste\n\n'
   return cabecalho + 'Elemento cadastrado\nResultado = Nao passou no teste\n\n'
