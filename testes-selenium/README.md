@@ -1,15 +1,18 @@
 # Teste de Sistema com Selenium Webdriver
 
-## Objetivo da aplicação
-Exibir pontos de coleta, assim como permitir cadastrar novos pontos e excluí-los.
+## Descrição dos testes aplicados
+* Teste de Sistema com Selenium Webdriver
 
-## Funcionalidade da aplicação a ser analizada
-Cadastro de pontos de coleta.
+### Objetivo da aplicação
+* Exibir pontos de coleta, assim como permitir cadastrar novos pontos e excluí-los.
 
-## Objetivo do teste de software
-Atividade realizada para revelar defeitos existentes no software.
+### Funcionalidade da aplicação a ser analizada
+* Cadastro de pontos de coleta.
 
-## Tipo do teste
+### Objetivo do teste de software
+* Atividade realizada para revelar defeitos existentes no software.
+
+### Classificação do teste
 * Nível
   * Sistema
 * Tipo
@@ -17,17 +20,17 @@ Atividade realizada para revelar defeitos existentes no software.
 * Técnica
   * Teste Funcional
 
-## Finalidade e características do teste de sistema
+### Finalidade e características do teste de sistema
 * apontar falhas em aspectos gerais do sistema
 * encontrar falhas que o usuário final pode ter acesso
 * são testes avaliados do ponto de vista do usuário
 * avalia a funcionalidade geral do programa
 
-## Objetivo específico do teste a ser aplicado
+### Objetivo específico do teste a ser aplicado
 * avaliar a principal funcionalidade da aplicação: 
   * cadastrar pontos de coleta
 ### Metodologia
-Objetivando eliminar erros cadastrais, temos diversas hipóteses a avaliar:
+Objetivando eliminar erros cadastrais, foi gerado um script na linguagem Python, utilizando a ferramenta Selenium, em que serão analizadas as seguintes hipóteses:
 
 * Cadastrar todos campos normalmente (controle)
   * Esperado = cadastrar
