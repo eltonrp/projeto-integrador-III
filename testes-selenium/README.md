@@ -42,3 +42,10 @@ Objetivando eliminar erros cadastrais, foi gerado um script na linguagem Python,
   * Esperado = cadastrar
 * Cadastrar campos numéricos (cep e telefone) com quaisquer outros caracteres
   * Esperado = não cadastrar
+
+Ao final do teste o script gera um log, comparando a quantidade de elementos inicialmente cadastrados e a quantidade de elementos ao final da tentativa de cadastro. Caso atinja o resultado esperado, constará no resultado como "Passou no teste", caso contrário "Não passou no teste".
+
+### Benefícios
+* Identificar falhas
+* Ganho de produtividade
+* Continuar testando funcionalidades já validadas, ou seja, caso alguma alteração na aplicação afete alguma funcionalidade já corrigida, o teste irá apontar a falha
